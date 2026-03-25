@@ -51,7 +51,7 @@ struct vecN: C {
     vecN() = default;
 
     //! Converting constructor from existing C instance.
-    SHZ_FORCE_INLINE vecN(CType other) noexcept:
+    SHZ_FORCE_INLINE vecN(const CType& other) noexcept:
         CType(other) {}
 
     //! Conversion operator for going from a layout-compatible vector type to a SH4ZAM vector type.
@@ -451,7 +451,7 @@ struct vec3: vecN<vec3, shz_vec3_t, 3> {
     vec3() = default;
 
     //! C constructor: constructs a C++ vec3 from a C shz_vec3_t.
-    SHZ_FORCE_INLINE vec3(shz_vec3_t other) noexcept:
+    SHZ_FORCE_INLINE vec3(const shz_vec3_t& other) noexcept:
         vecN(other) {}
 
     //! Single-value constructor: initializes all components to \p v.
@@ -552,7 +552,7 @@ struct vec4: vecN<vec4, shz_vec4_t, 4> {
     vec4() = default;
 
     //! C Constructor: initializes a C++ shz::vec4 from a C shz_vec4_t.
-    SHZ_FORCE_INLINE vec4(shz_vec4_t other) noexcept:
+    SHZ_FORCE_INLINE vec4(const shz_vec4_t& other) noexcept:
         vecN(other) {}
 
     //! Single-value constructor: initializes each element to the given value.
